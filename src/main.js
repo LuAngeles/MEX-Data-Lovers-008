@@ -56,7 +56,7 @@ AllPokemon.addEventListener("click", openPokedex);
 const baseData = POKEMON.pokemon;
 const card = document.getElementById("dataPokemon");
 
-const cardData = () => {
+const cardData = (baseData) => {
     let str = ''
     baseData.forEach(element => {
         str +=
@@ -81,7 +81,7 @@ const cardData = () => {
 
     card.innerHTML = str
 };
-cardData()
+cardData(baseData)
 
 
 ///Para que me aparezcan los tipos de pokemon existentes en la data ///
@@ -118,23 +118,24 @@ const orderName=namePok.sort();
 
 
 
-const button = document.getElementsByClassName('buttonType')
+const button = document.getElementsByClassName('buttonType') //Esta variable se manda llamar por la clase que tiene cada uno de los botones//
 //console.log(button)
 
 const targetPok=(event)=>{
-console.log(event.target.id);
+console.log(event.target.id);//Como todos los botones tienen la misma clase, lo que hace ésta función es buscar el id del tipo de pokémon que el usuario quiere buscar//
 //event.target.id
 }
 
 for(let i = 0; i < button.length ; i++){
-    button[i].addEventListener('click' , targetPok);
- 
+    button[i].addEventListener('click' , targetPok); //Lo que hace el for es que de todos los botones que tengan esta clase, buscará el id//
+       
+     }
+     const typePokemon=baseData.filter(function(el){
+      return el.type.find(targetPok);
+      });
+     cardData(typePokemon);
+     
 
-  }
-  const typePokemon=baseData.filter(function(el){
-    return el.type.find(targetPok);
-  });
-cardData(targetPok)
 
  
 
@@ -166,15 +167,15 @@ cardData(targetPok)
 const poisPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
     return (el.type[0]=='Poison');
 });
-const poisType=document.getElementById('poison-pokemon');
+const poisType=document.getElementById('tipos');
 const cardPoison=()=>{
     let poisStr=''
         poisPok.forEach(element =>{
             poisStr += `<div class=card>
             <p>${element.num}</p> 
             <img src="${element.img}"></img>
-            <p>${element.name}</p>
-            <p>${element.type}</p>
+            <p>Nombre:${element.name}</p>
+            <p>Debilidades:${element.weaknesses}</p>
             </div>`
 });
 poisType.innerHTML=poisStr
@@ -187,7 +188,7 @@ const groundPok=baseData.filter(function(el){ //el es el equivalente del objeto 
 });
 const groundType=document.getElementById('ground-pokemon');
 const cardGround=()=>{
-    let groundStr=''
+    let groundStr='' //Esta es la variable donde me irá guardando la información//
         groundPok.forEach(element =>{
             groundStr += `<div class=card>
             <p>${element.num}</p>
@@ -196,9 +197,9 @@ const cardGround=()=>{
             <p>${element.type}</p>
             </div>`
 });
-groundType.innerHTML=groundStr;
+groundType.innerHTML=groundStr; //Ésta es la sección donde quiero que aparezaca esa tarjetita//
 };
-cardGround()  
+cardGround()  //Aquí mando llamar la tarjeta final, ya con todos los datos//
 
   //Fitlro para que aparezca por tipo eléctrico//
 const elecPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
