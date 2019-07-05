@@ -446,3 +446,43 @@ ul.topnav li.right {
         float: none;
     }
 }
+
+/*menu tipos*/
+#tipos-Pokemon {
+   background-color: #00B3CC;
+   align-items: center;
+}
+h4 {
+   width: 100%;
+   Font-Family: 'Ruda';
+   Font-Size: 30px;
+   color: #f8f8f8;
+   text-align: center;
+   background-color: #5ca0d3;
+   font: 'Josefin Sans', sans-serif;
+}
+.buttonType {
+   padding: 0 16px;
+   border-radius: 2px;
+   background-color: #4592af;
+   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+   color: #fff;
+   transition: background-color 15ms linear, box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+   height: 36px;
+   line-height: 2.25rem;
+   font-family: 'Slabo 27px', serif;
+   font-size: 0.875rem;
+   font-weight: 500;
+   letter-spacing: 0.06em;
+   text-transform: uppercase;
+   align-items: center;
+}
+.buttonType:hover,
+.buttonType:focus {
+   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+   background-color: #159090;
+}
+.buttonType:active {
+   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+   background-color: #61b4b3;
+}
