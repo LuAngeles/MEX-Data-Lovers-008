@@ -10,8 +10,81 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
-<<<<<<< HEAD
   </head>
+
+<body>
+    <!-- Navbar (sit on top)-->
+
+    <ul class="topnav">
+        <li><a class="active" href="#PaginaInicio" id="return-button">Inicio</a></li>
+        <li><a href="#instructions" id="help-button">Instrucciones</a></li>
+        <li><a href="#dataPokemon" id="show-button">Pokedex!</a></li>
+
+    </ul>
+
+    <section id="PaginaInicio" class="display_block">
+
+    </section>
+
+    <section class="hide" id="instructions">
+        <div class="instructions-text ">
+            <input type="button" name="close" value="X" id="close">
+            <h2>Instrucciones</h2>
+            <p>Esta es una página donde puedes visualizar los 151 Pokémones de la región Kento.</p>
+            </br>
+            <p>Utilizarlo es muy sencillo, para ingresar solo necesitas dar click en "Pokedex " y ahí podras ver todos los Pokémones, así como filtrar por tipo, evolución y por nombre de forma ascedente o descendente.</p>
+        </div>
+    </section>
+
+
+    <!-- pokedex-->
+    <section id="tipos-Pokemon" class="hide">
+
+           <h4>Busca por tipo de Pokémon:</h4>
+           <button id="Normal" class="buttonType">Normal</button>
+           <button id="Fire" class="buttonType">Fuego(Fire)</button>
+           <button id="Grass" class="buttonType">Hierba(Grass)</button>
+           <button id="Poison" class="buttonType">Veneno(Poison</button>
+           <button id="Ice" class="buttonType">Hielo(Ice)</button>
+           <button id="Water" class="buttonType">Agua(Water)</button>
+           <button id="Flying" class="buttonType">Volador(Flying)</button>
+           <button id="Psychic" class="buttonType">Psíquico(Psychic)</button>
+           <button id="Ground" class="buttonType">Tierra(Ground)</button>
+           <button id="Ghost" class="buttonType">Fantasma(Ghost)</button>
+           <button id="Bug" class="buttonType">Insecto(Bug)</button>
+
+        
+      </section>
+
+      <section id="tipos" class="hide">
+          <ul class="topnav">
+ 
+      
+          </ul>
+<h4>Pokémon tipo:</h4>
+      </section>
+
+    <section id="dataPokemon" class="container Pokedex hide">
+
+ 
+    </section>
+
+    <section id="tipo-hierba" class="hide">
+      <h3>Aquí va la sección pokémon tipo hierba (grass)</h3>  
+      <div id="Grass-pokemon" class="card-Grass"></div>
+    </section>
+
+
+    <div id="root "></div>
+   
+    <script src="./data/pokemon/pokemon.js "></script>
+
+    <script src="main.js "></script>
+    <script src="data.js "></script>
+
+</body>
+
+</html>
 
   <!--
   <body>
@@ -101,88 +174,3 @@
       <div id="fight-pokemon" class="card"></div>
     </section> 
 -->
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <script src="./data/pokemon/pokemon.js"></script>
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-    <!-- <script src="./data/lol/lol.js"></script> -->
-    
-    
-    <script src="main.js"></script>
-    <script src="data.js"></script>
-  </body>
-</html>
-=======
-</head>
-
-<body>
-    <!-- Navbar (sit on top)-->
-
-    <ul class="topnav">
-        <li><a class="active" href="#PaginaInicio" id="return-button">Inicio</a></li>
-        <li><a href="#instructions" id="help-button">Instrucciones</a></li>
-        <li><a href="#dataPokemon" id="show-button">Pokedex!</a></li>
-
-    </ul>
-
-    <section id="PaginaInicio" class="display_block">
-
-
-
-    </section>
-
-    <section class="hide" id="instructions">
-        <div class="instructions-text ">
-            <input type="button" name="close" value="X" id="close">
-            <h2>Instrucciones</h2>
-            <p>Esta es una página donde puedes visualizar los 151 Pokémones de la región Kento.</p>
-            </br>
-            <p>Utilizarlo es muy sencillo, para ingresar solo necesitas dar click en "Pokedex " y ahí podras ver todos los Pokémones, así como filtrar por tipo, evolución y por nombre de forma ascedente o descendente.</p>
-        </div>
-    </section>
-
-
-    <!-- pokedex-->
-
-    <section id="dataPokemon" class="container Pokedex hide">
-
-        <nav id="colorNav">
-            <ul>
-                <li class="green">
-                    <a href="#" class="icon-home"></a>
-                    <ul>
-                        <li><a href="#">Dropdown item 1</a></li>
-                        <li><a href="#">Dropdown item 2</a></li>
-                        <!-- More dropdown options -->
-                    </ul>
-                </li>
-
-                <!-- More menu items -->
-
-            </ul>
-        </nav>
-        <ul class="topnav">
-            <li><a class="active" href="#PaginaInicio" id="return-button">Inicio</a></li>
-            <li><a href="#instructions" id="help-button">Instrucciones</a></li>
-            <li><a href="#dataPokemon" id="show-button">Pokedex!</a></li>
-
-        </ul>
-
-
-    </section>
-
-
-
-    <div id="root "></div>
-    <!-- <script src="./data/injuries/injuries.js "></script> -->
-    <script src="./data/pokemon/pokemon.js "></script>
-    <!-- <script src="./data/steam/steam.js "></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js "></script> -->
-    <!-- <script src="./data/lol/lol.js "></script> -->
-    <script src="main.js "></script>
-    <script src="data.js "></script>
-
-</body>
-
-</html>
->>>>>>> origin/master

@@ -1,37 +1,88 @@
-<<<<<<< HEAD
-//Funciones generales para mostrar y ocultar secciones -esto evita abrir varios HTML's//
-const ocultarSeccion=(id)=>{
-    document.getElementById(id).classList.add('oculto')
-    }
-const mostrarSeccion=(id)=>{
-    document.getElementById(id).classList.remove('oculto')
-    }
+//Working with help button-instructions
+const helpButton = document.getElementById('help-button');
+const closeButton = document.getElementById('close');
+const returnButton = document.getElementById('return-button');
 
-const ocultarBoton=(id)=>{
-    document.getElementById(id).classList.add('boton')
+
+//Function that hide section with id
+const hideSection = (id) => {
+        document.getElementById(id).classList.add('hide');
     }
-    
+    //Function that show section with id
+const showSection = (id) => {
+    document.getElementById(id).classList.remove('hide');
+}
+
+
+//Functionability for help button and close button
+const showInstructions = () => showSection('instructions');
+const closeInstructions = () => hideSection('instructions');
+
+helpButton.addEventListener("click", showInstructions);
+closeButton.addEventListener("click", closeInstructions)
+
+//BotonInicio
+
+const goBack = document.getElementById('return-button');
+
+const goback = () => { 
+    hideSection('dataPokemon');
+    hideSection('tipos-Pokemon')
+    hideSection('tipos')
+    showSection('PaginaInicio');
+}
+
+goBack.addEventListener("click", goback);
+
+
+
+//Seccion Pokemones
+const AllPokemon = document.getElementById('show-button');
+
+const openPokedex = () => {
+    hideSection('PaginaInicio');
+    hideSection('tipos');
+    showSection('dataPokemon');
+    showSection('tipos-Pokemon');
+}
+
+AllPokemon.addEventListener("click", openPokedex);    
 
 
 
 // Función para mostrar la data en html //
-const baseData=POKEMON.pokemon;
-const card=document.getElementById('pokemon-card');
-const cardData=()=>{
-    let str=''
-      baseData.forEach(element => {
-        console.log(element)
-        str += `<div class=card">
-          <p>${element.num}</p>
-            <img src="${element.img}"></img>
-            <p>${element.name}</p>
-            <p>${element.type}</p>
-            </div>`
-        });
+//Data
 
-card.innerHTML=str
+const baseData = POKEMON.pokemon;
+const card = document.getElementById("dataPokemon");
+
+const cardData = () => {
+    let str = ''
+    baseData.forEach(element => {
+        str +=
+            `<div class="Pokedex">
+        <div class= "card">
+        
+        <p>Num. ${element.num}</p>
+       
+        <div class="img">
+        <img src="${element.img}"></img>
+        </div>
+        
+        <div class="info">
+        <p>${element.name}</p>
+        
+         <p>${element.type}</p>
+        </div>
+        </div>
+        </div>`
+
+    });
+
+    card.innerHTML = str
 };
 cardData()
+
 
 ///Para que me aparezcan los tipos de pokemon existentes en la data ///
 //let tipoPok=[]
@@ -54,37 +105,62 @@ const orderName=namePok.sort();
 
 // sección para segundo filtro por tipo de pokémon //
 
-    //Ocultar y mostrar sección//
-const pokType=document.getElementById('tipo-boton');
-const secType=()=>{
-    alert('prueba');
-    ocultarSeccion('principal');
-    mostrarSeccion('tipo-pokemon');
-    
-    
-}
-pokType.addEventListener('click',secType);
+
     /////////////////////////////////
+    const pokemonType = document.getElementById('tipos-Pokemon');
+    const openType = () => {
+        hideSection('tipos-Pokemon');
+        hideSection('dataPokemon')
+        showSection('tipos');
+    }
+    
+  pokemonType.addEventListener("click", openType);   
+
+
+
+const button = document.getElementsByClassName('buttonType')
+//console.log(button)
+
+const targetPok=(event)=>{
+console.log(event.target.id);
+//event.target.id
+}
+
+for(let i = 0; i < button.length ; i++){
+    button[i].addEventListener('click' , targetPok);
+ 
+
+  }
+  const typePokemon=baseData.filter(function(el){
+    return el.type.find(targetPok);
+  });
+cardData(targetPok)
+
+ 
+
+
+
+
     //Filtro para que aparezcan por tipo hierba//
-const grassPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-        return el.type.find(tipo=>tipo==='Ice');
+//const grassPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
+  //      return el.type.find(tipo=>tipo==='Grass');
         
-});
-        console.log(grassPok);
-const grassType=document.getElementById('Grass-pokemon');
-const cardGrass=()=>{
-    let grassStr=''
-         grassPok.forEach(element =>{
-            grassStr += `<div class=card>
-            <p>${element.num}</p>
-            <img src="${element.img}"></img>
-            <p>${element.name}</p>
-            <p>${element.type}</p>
-            </div>`
-});
-grassType.innerHTML=grassStr
-};
-cardGrass()
+//});
+  //      console.log(grassPok);
+//const grassType=document.getElementById('Grass-pokemon');
+//const cardGrass=()=>{
+  //  let grassStr=''
+    //     grassPok.forEach(element =>{
+      //      grassStr += `<div class=card>
+        //    <p>${element.num}</p>
+          //  <img src="${element.img}"></img>
+           // <p>${element.name}</p>
+            //<p>${element.type}</p>
+            //</div>`
+//});
+//grassType.innerHTML=grassStr
+//};
+//cardGrass()
 
     //Filtro para que aparezca por tipo veneno//
 const poisPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
@@ -296,98 +372,3 @@ const cardFight=()=>{
 fightType.innerHTML=fightStr;
 };
 cardFight() 
-
-
-const buton = document.getElementsByClassName('buttons')
-console.log(buton)
-
-
-for(let i = 0; i < buton.length ; i++ ){
-    buton[i].addEventListener('click' , () =>{
-            console.log(event.target.id)
-        })
-}
-
-=======
-//Working with help button-instructions
-const helpButton = document.getElementById('help-button');
-const closeButton = document.getElementById('close');
-const returnButton = document.getElementById('return-button');
-
-
-//Function that hide section with id
-const hideSection = (id) => {
-        document.getElementById(id).classList.add('hide');
-    }
-    //Function that show section with id
-const showSection = (id) => {
-    document.getElementById(id).classList.remove('hide');
-}
-
-
-//Functionability for help button and close button
-const showInstructions = () => showSection('instructions');
-const closeInstructions = () => hideSection('instructions');
-
-helpButton.addEventListener("click", showInstructions);
-closeButton.addEventListener("click", closeInstructions)
-
-//BotonRegresar
-
-const goBack = document.getElementById('return-button');
-
-const goback = () => {
-    hideSection('dataPokemon');
-    showSection('PaginaInicio');
-}
-
-goBack.addEventListener("click", goback);
-
-
-
-//Seccion Pokemones
-const AllPokemon = document.getElementById('show-button');
-
-const openPokedex = () => {
-    hideSection('PaginaInicio');
-    showSection('dataPokemon');
-}
-
-AllPokemon.addEventListener("click", openPokedex);
-
-
-
-//Data
-
-const baseData = POKEMON.pokemon;
-const card = document.getElementById("dataPokemon");
-
-const cardData = () => {
-    let str = ''
-    baseData.forEach(element => {
-        str +=
-            `<div class="Pokedex">
-        <div class= "card">
-        
-        <p>Num. ${element.num}</p>
-       
-        <div class="img">
-        <img src="${element.img}"></img>
-        </div>
-        
-        <div class="info">
-        <p>${element.name}</p>
-        
-         <p>${element.type}</p>
-        </div>
-        </div>
-        </div>`
-
-    });
-
-    card.innerHTML = str
-};
-cardData()
-
-//Filtro1-Por tipo
->>>>>>> origin/master
