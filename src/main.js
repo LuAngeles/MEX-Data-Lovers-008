@@ -41,7 +41,6 @@ const AllPokemon = document.getElementById('show-button');
 const openPokedex = () => {
     hideSection('PaginaInicio');
     hideSection('type-pokemon');
-    
     showSection('dataPokemon');
     showSection('tipos-Pokemon');
 }
@@ -91,15 +90,6 @@ cardData(baseData)
   //tipoPok.push(baseData[i].type);
 //}
 
-// sección para primer filtro ordene de la A-Z//
-///Para que me aparezcan los nombres de pokemon existentes en la data ///
-let namePok=[];
-for(let i=0;i<baseData.length;i++){ 
-   // namePok = console.log(baseData[i].name);
-    namePok.push(baseData[i].name);
-}
-const orderName=namePok.sort();
-
 
 
 
@@ -112,7 +102,9 @@ const pokTypeMenu=document.getElementById('main-type')    //Mandará llamar el m
 const closePokTypeMenu=document.getElementById('close-2') //Botón para cerrar el menú donde aparecen los tipos de pokémones
 
 const openTypeMenu = () =>{showSection('type-pokemon')}   //función para mostrar el menú o las opciones por tipo
-const closeTypeMenu = () =>{hideSection('type-pokemon')}  //función para ocultar el menú o las opciones por tipo
+const closeTypeMenu = () =>{ //función para ocultar el menú o las opciones por tipo
+  hideSection('type-pokemon');
+  }  
   
    
 pokTypeMenu.addEventListener("click",openTypeMenu);       //Al dar click se abrirá el menú por tipos
@@ -126,17 +118,30 @@ console.log(button)
 const targetPok=(event)=>{
 const pokeId  = event.target.id //Como todos los botones tienen la misma clase, lo que hace ésta función es buscar el id del tipo de pokémon que el usuario quiere buscar//
 const grassPok=baseData.filter((el)=> el.type.find(tipo=>tipo===pokeId)); //el=elemento que irá recorriendo y/o buscando dentro del arreglo 'type' el valor de 'Grass'//
-console.log(grassPok)
+  if(pokeId=='return'){
+  cardData(baseData);
+}else{
+//console.log(grassPok)
 cardData(grassPok)
 //event.target.id
 }
-
+};
 for(let i = 0; i < button.length ; i++){
   button[i].addEventListener('click' , targetPok); //Lo que hace el for es que de todos los botones que tengan esta clase, buscará el id//
      
      }
      
      
+/////////// Para obtener estadísticas de la data ///////////
+let spawnChancePok=[]
+for(let i=0;i<baseData.length;i++){ 
+  //spawnChancePok = console.log(baseData[i].spawn_chance);
+  spawnChancePok.push(baseData[i].spawn_chance);
+}
+let average=spawnChancePok.length;
+
+let sum=spawnChancePok.reduce((accumulator,currentValue)=>accumulator+currentValue);
+ average=sum/average;
 
 
  
