@@ -30,50 +30,76 @@
         <div class="instructions-text ">
             <input type="button" name="close" value="X" id="close">
             <h2>Instrucciones</h2>
-            <p>Esta es una página donde puedes visualizar los 151 Pokémones de la región Kento.</p>
-            </br>
+            <p>Esta es una página donde puedes visualizar los 151 Pokémones de la región Kento.</p><br>
             <p>Utilizarlo es muy sencillo, para ingresar solo necesitas dar click en "Pokedex " y ahí podras ver todos los Pokémones, así como filtrar por tipo, evolución y por nombre de forma ascedente o descendente.</p>
         </div>
     </section>
 
 
     <!-- pokedex-->
+
     <section id="tipos-Pokemon" class="hide">
+      <h2>¿Demasiada información?</h2>
+      <ul>
+        <li>
+          <h2>Clasifica por <input type="button" name="main-type" value="Tipo" id="main-type"> de Pokémon:</h2>
+          <section id="type-pokemon" class="hide">
+            <input type="button" name="close" value="X" id="close-2">
+            <li>
+                <button id="Normal" class="buttonType">Normal</button>
+              </li>
+            <li>
+                <button id="Fire" class="buttonType">Fuego(Fire)</button>
+              </li>
+            <li>
+                <button id="Grass" class="buttonType" >Hierba(Grass)</button>
+              </li>
+            <li>
+                <button id="Poison" class="buttonType">Veneno(Poison</button>
+              </li>
+            <li>
+                <button id="Ice" class="buttonType">Hielo(Ice)</button>
+              </li>
+            <li>
+                <button id="Water" class="buttonType"><img src="./imagenes.ico-rayo">Agua(Water)</button>
+              </li>
+            <li>
+                <button id="Flying" class="buttonType">Volador(Flying)</button>
+              </li>
+            <li>
+                <button id="Psychic" class="buttonType">Psíquico(Psychic)</button>
+              </li>
+            <li>
+                <button id="Ground" class="buttonType">Tierra(Ground)</button> 
+              </li>      
+            <li>
+                <button id="Ghost" class="buttonType">Fantasma(Ghost)</button>
+              </li>
+            <li>
+                <button id="Bug" class="buttonType">Insecto(Bug)</button>      
+              </li>
+          </section>
+        <li>
+          <h2>Ordena por nombre:</h2>
+          </li>                 
+        </li>
+      </ul>
+    </section>
 
-           <h4>Busca por tipo de Pokémon:</h4>
-           <button id="Normal" class="buttonType">Normal</button>
-           <button id="Fire" class="buttonType">Fuego(Fire)</button>
-           <button id="Grass" class="buttonType" >Hierba(Grass)</button>
-           <button id="Poison" class="buttonType">Veneno(Poison</button>
-           <button id="Ice" class="buttonType">Hielo(Ice)</button>
-           <button id="Water" class="buttonType"><img src="./imagenes.ico-rayo">Agua(Water)</button>
-           <button id="Flying" class="buttonType">Volador(Flying)</button>
-           <button id="Psychic" class="buttonType">Psíquico(Psychic)</button>
-           <button id="Ground" class="buttonType">Tierra(Ground)</button>
-           <button id="Ghost" class="buttonType">Fantasma(Ghost)</button>
-           <button id="Bug" class="buttonType">Insecto(Bug)</button>
 
+<!--    <section id="tipo-hierba" class="hide">
+        <h3>Aquí va la sección pokémon tipo hierba (grass)</h3>
+          <input type="button" name="return-pokedex" value="Cerrar X" id="return-pokedex">  
+            <div id="Grass-pokemon" class="card-Grass"></div>
         
-      </section>
-
-      <section id="tipos" class="hide">
-          <ul class="topnav">
+      </section>   -->
+     
+     <section id="dataPokemon" class="container Pokedex hide">
  
-      
-          </ul>
-<h4>Pokémon tipo:</h4>
-      </section>
-
-    <section id="dataPokemon" class="container Pokedex hide">
-
  
     </section>
 
-    <section id="tipo-hierba" class="hide">
-      <h3>Aquí va la sección pokémon tipo hierba (grass)</h3>  
-      <div id="Grass-pokemon" class="card-Grass"></div>
-    </section>
-
+  
 
     <div id="root "></div>
    
