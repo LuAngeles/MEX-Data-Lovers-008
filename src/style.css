@@ -451,6 +451,8 @@ ul.topnav li.right {
 #tipos-Pokemon {
    background-color: #00B3CC;
    align-items: center;
+   
+
 }
 h4 {
    width: 100%;
@@ -463,7 +465,7 @@ h4 {
 }
 .buttonType {
    padding: 0 16px;
-   border-radius: 2px;
+   /*border-radius: 2px;*/
    background-color: #4592af;
    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
    color: #fff;
@@ -476,6 +478,8 @@ h4 {
    letter-spacing: 0.06em;
    text-transform: uppercase;
    align-items: center;
+   
+   
 }
 .buttonType:hover,
 .buttonType:focus {
@@ -485,4 +489,18 @@ h4 {
 .buttonType:active {
    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
    background-color: #61b4b3;
+}
+.menu ul{
+    padding: 0;
+    display: flex;
+    list-style: none;     
+
+}
+#main-type{
+    display: block;
+    padding: 0;
+}
+
+.menu li:hover{
+    background: yellowgreen;
 }

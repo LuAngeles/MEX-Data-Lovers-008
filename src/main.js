@@ -27,7 +27,8 @@ const goBack = document.getElementById('return-button');
 
 const goback = () => { 
     hideSection('dataPokemon');
-    hideSection('tipos-Pokemon')    
+    hideSection('tipos-Pokemon');
+    hideSection('sorta-z');    
     showSection('PaginaInicio');
 }
 
@@ -41,8 +42,10 @@ const AllPokemon = document.getElementById('show-button');
 const openPokedex = () => {
     hideSection('PaginaInicio');
     hideSection('type-pokemon');
-    showSection('dataPokemon');
     showSection('tipos-Pokemon');
+    showSection('sorta-z');
+    showSection('dataPokemon');
+    showSection('Pokedex');
 }
 
 AllPokemon.addEventListener("click", openPokedex);    
@@ -132,7 +135,7 @@ for(let i = 0; i < button.length ; i++){
      }
      
      
-/////////// Para obtener estadísticas de la data ///////////
+/////////// Para obtener estadísticas de la data por oportunidad de aparición///////////
 let spawnChancePok=[]
 for(let i=0;i<baseData.length;i++){ 
   //spawnChancePok = console.log(baseData[i].spawn_chance);
@@ -143,6 +146,26 @@ let average=spawnChancePok.length;
 let sum=spawnChancePok.reduce((accumulator,currentValue)=>accumulator+currentValue);
  average=sum/average;
 
+
+/////////// Para obtener estadísticas de la data por peso///////////
+let weightPok=[];
+for(let i=0;i<baseData.length;i++){ 
+  //spawnChancePok = console.log(baseData[i].spawn_chance);
+ weightPok.push(baseData[i].weight);
+}
+//console.log(weightPok);
+
+// for(let j=0;j<=weightPok.length;j++){
+//    numWeight=parseInt(weightPok[s:2,j]);
+// }
+// console.log(numWeight);
+
+//let aveWeight=weightPok.length;
+
+
+
+// let sumWeight=weightPok.reduce((accumulator,currentValue)=>accumulator+currentValue);
+//  aveWeight=sumWeight/aveWeight;
 
  
 
