@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Concert+One|Righteous&display=swap');
+
 @viewport {
     width: device-width;
     zoom: 1.0;
@@ -31,14 +33,16 @@ body {
 .hide {
     visibility: hidden;
 }
+/* Responsive */
 
-@media only screen and (min-width: 300px) and (max-width: 700px) {
+@media only screen and (max-width:300px) {
     body {
-        background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3f64162d-4e41-40d2-be0f-5be0535ec904/d5wl1j0-b0a1b5d6-6448-4147-85a6-32241e6aa6dd.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNmNjQxNjJkLTRlNDEtNDBkMi1iZTBmLTViZTA1MzVlYzkwNFwvZDV3bDFqMC1iMGExYjVkNi02NDQ4LTQxNDctODVhNi0zMjI0MWU2YWE2ZGQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WA47TJu4o-kmyaYO8J0-f-YAMjxJJt7ASvdvJ50zJkA');
+        background-image: url('https://cdn.molaunhuevo.com/wp-content/uploads/fondos-pantalla-pokemon.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
+        background-color: #5bd1d7;
     }
     a.button2 {
         display: block;
@@ -62,18 +66,20 @@ body {
     .header-right {
         float: none;
     }
+}
+
+@media only screen and (max-width:320px) {
     #instructions {
         animation: bounce 2s infinite 2s;
-        margin: 100px auto;
-        padding-bottom: 50px;
         background-color: rgba(255, 255, 255, 0.95);
+        padding-bottom: 50px;
         border: 2px solid;
-        padding: 10px;
+        padding-bottom: 50px;
         border-radius: 50px 20px;
-        color: black;
-        width: 200px;
+        color: rgb(2, 2, 2);
+        width: 100px;
         font-family: 'Slabo 27px', serif;
-        text-align: justify;
+        text-align: center;
         position: absolute;
         top: 10%;
         right: 0;
@@ -82,35 +88,20 @@ body {
     }
     #instructions p {
         color: black;
-        text-align: left;
-        width: 200px;
+        text-align: center;
+        width: 160px;
         margin: 0 auto;
-        font-size: 24px;
+        font-size: 16px;
+        line-height: 25px;
     }
 }
-
-
-/* Comment
-
-
-#help-button {
-    color: black;
-    background-color: transparent;
-    display: block;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 20px;
-    border-radius: 100%;
-    padding: 2px 15px;
-    border: none;
-    cursor: pointer;
-}
- */
 
 .header-right {
     float: right;
 }
+/* Responsive header */
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width:300px) and (max-width: 500px) {
     .header a {
         float: none;
         display: block;
@@ -120,8 +111,6 @@ body {
         float: none;
     }
 }
-
-
 /* Instrucciones */
 
 #close {
@@ -143,13 +132,12 @@ body {
 #instructions {
     animation: bounce 2s infinite 2s;
     background-color: rgba(255, 255, 255, 0.95);
-    margin: 100px auto;
     padding-bottom: 50px;
     border: 2px solid;
     padding-bottom: 50px;
     border-radius: 50px 20px;
     color: rgb(2, 2, 2);
-    width: 780px;
+    width: 700px;
     font-family: 'Slabo 27px', serif;
     text-align: center;
     position: absolute;
@@ -161,16 +149,23 @@ body {
 
 #instructions p {
     color: black;
-    text-align: left;
+    text-align: center;
     width: 700px;
     margin: 0 auto;
-    font-size: 24px;
+    font-size: 27px;
+    line-height: 25px;
 }
 
-
-/*
- * Cards
- */
+h2 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+/*Cards*/
 
 .dataPokemon {
     display: flex;
@@ -180,8 +175,7 @@ body {
     margin: 2rem;
     overflow: scroll;
     background-color: #00B3CC;
-    /* align-items: space-between;
-   justify-items: space-between; */
+    /* align-items: space-between;justify-items: space-between; */
 }
 
 .Pokedex,
@@ -194,7 +188,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 4rem;
+    margin-top: 2rem;
     cursor: pointer;
 }
 
@@ -276,131 +270,192 @@ body {
     text-align: center;
 }
 
+.container .card p1 {
+    padding: 0 1rem;
+    font-family: 'Slabo 27px', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    font-weight: bold;
+    text-align: right;
+}
+
+.container .card p2 {
+    font-family: 'Slabo 27px', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
 .container .card a {
     font-weight: 500;
     text-decoration: none;
     color: #3498db;
 }
+/* menu filter pokemon types */
 
-
-/* menu */
-
-#colorNav>ul {
-    width: 450px;
-    margin: 0 auto;
+html {
+    background-color: #fff;
+    height: 100%;
 }
 
-#colorNav>ul>li {
-    /* will style only the top level li */
-    list-style: none;
-    box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset, 1px 1px 1px #CCC;
-    display: inline-block;
-    line-height: 1;
-    margin: 1px;
-    border-radius: 3px;
+body {
+    color: #333333;
+    font: 0.75em/1.5em Arial, sans-serif;
+}
+
+.container2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 96%;
+}
+/* common and top level styles */
+
+#nav span {
+    display: none;
+    background-color: #348498;
+}
+
+#nav,
+#nav ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav {
+    background-color: #00B3CC;
+    border-bottom: 5px solid #333333;
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
     position: relative;
+    width: 98%;
 }
 
-#colorNav>ul>li>a {
-    color: inherit;
-    text-decoration: none !important;
-    font-size: 24px;
-    padding: 25px;
-}
-
-#colorNav li ul {
+#nav ul.subs {
+    background-color: transparent;
+    /* box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); */
+    color: #333333;
+    display: none;
+    left: 0;
+    padding: 2%;
     position: absolute;
-    list-style: none;
-    text-align: center;
-    width: 180px;
-    left: 50%;
-    margin-left: -90px;
-    top: 70px;
-    font: bold 12px 'Open Sans Condensed', sans-serif;
-    /* This is important for the show/hide CSS animation */
-    max-height: 0px;
-    overflow: hidden;
-    -webkit-transition: max-height 0.4s linear;
-    -moz-transition: max-height 0.4s linear;
-    transition: max-height 0.4s linear;
+    top: 54px;
+    width: 50%;
 }
 
-#colorNav li:hover ul {
-    max-height: 200px;
+#nav>li {
+    border-bottom: 5px solid transparent;
+    float: left;
+    margin-bottom: -5px;
+    text-align: left;
+    -moz-transition: all 300ms ease-in-out 0s;
+    -ms-transition: all 300ms ease-in-out 0s;
+    -o-transition: all 300ms ease-in-out 0s;
+    -webkit-transition: all 300ms ease-in-out 0s;
+    transition: all 300ms ease-in-out 0s;
 }
 
-#colorNav li ul li {
-    background-color: #313131;
+#nav li a {
+    display: block;
+    text-decoration: none;
+    -moz-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    -ms-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    -o-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    -webkit-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    white-space: normal;
 }
 
-#colorNav li ul li a {
-    padding: 12px;
-    color: #fff !important;
-    text-decoration: none !important;
+#nav>li>a {
+    color: #ffffff;
+    display: block;
+    font-size: 1.5em;
+    line-height: 49px;
+    padding: 0 15px;
+    font-family: 'Concert One', sans-serif;
+    background-color: #00B3CC;
+}
+
+#nav>li:hover>a,
+#nav>a:hover {
+    background-color: #8f71ff;
+    color: #FFFFFF;
+}
+
+#nav li.active>a {
+    background-color: #333333;
+    color: #FFFFFF;
+}
+/* submenu */
+
+#nav li:hover ul.subs {
     display: block;
 }
 
-#colorNav li ul li:nth-child(odd) {
-    /* zebra stripes */
-    background-color: #363636;
+#nav ul.subs>li {
+    display: inline-block;
+    float: none;
+    padding: 10px 1%;
+    vertical-align: top;
+    width: 33%;
 }
 
-#colorNav li ul li:hover {
-    background-color: #444;
+#nav ul.subs>li a {
+    color: #777777;
+    line-height: 20px;
 }
 
-#colorNav li ul li:first-child {
-    border-radius: 3px 3px 0 0;
-    margin-top: 25px;
-    position: relative;
+#nav ul li a:hover {
+    color: #8f71ff;
 }
 
-#colorNav li ul li:first-child:before {
-    /* the pointer tip */
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    border: 5px solid transparent;
-    border-bottom-color: #313131;
-    left: 50%;
-    top: -10px;
-    margin-left: -5px;
+#nav ul.subs>li>a {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    
 }
 
-#colorNav li ul li:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+#nav ul.subs>li li {
+    float: none;
+    padding-left: 8px;
+    -moz-transition: padding 150ms ease-out 0s;
+    -ms-transition: padding 150ms ease-out 0s;
+    -o-transition: padding 150ms ease-out 0s;
+    -webkit-transition: padding 150ms ease-out 0s;
+    transition: padding 150ms ease-out 0s;
 }
 
-#colorNav li.green {
-    /* This is the color of the menu item */
-    background-color: #00c08b;
-    /* This is the color of the icon */
-    color: #127a5d;
+#nav ul.subs>li li:hover {
+    padding-left: 15px;
 }
 
-#colorNav li.red {
-    background-color: #ea5080;
-    color: #aa2a52;
+@media all and (max-width: 980px) {
+    #nav>li {
+        float: none;
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
+    #nav ul.subs {
+        position: relative;
+        top: 0;
+    }
+    #nav li:hover ul.subs {
+        display: none;
+    }
+    #nav li #s1:target+ul.subs,
+    #nav li #s2:target+ul.subs {
+        display: block;
+    }
+    #nav ul.subs>li {
+        display: block;
+        width: auto;
+    }
 }
-
-#colorNav li.blue {
-    background-color: #53bfe2;
-    color: #2884a2;
-}
-
-#colorNav li.yellow {
-    background-color: #f8c54d;
-    color: #ab8426;
-}
-
-#colorNav li.purple {
-    background-color: #df6dc2;
-    color: #9f3c85;
-}
-
-
 /* navegacion */
 
 body {
@@ -426,6 +481,7 @@ ul.topnav li a {
     padding: 14px 16px;
     text-decoration: none;
     Font-Family: 'Oxygen', Sans-Serif;
+    font-size: 3vh;
 }
 
 ul.topnav li a:hover:not(.active) {
@@ -446,26 +502,70 @@ ul.topnav li.right {
         float: none;
     }
 }
+/* Menu tipos */
+/* pokedex titulo */
 
+h3 {
+    width: 100%;
+    Font-Family: 'Ruda';
+    Font-Size: 30px;
+    color: #f8f8f8;
+    text-align: center;
+    background-color: #71a0a5;
+    font: 'Josefin Sans', sans-serif;
+}
 /*menu tipos*/
-#tipos-Pokemon {
-   background-color: #00B3CC;
-   align-items: center;
-   
 
+#tipos-Pokemon {
+    background-color: #00B3CC;
+    align-items: center;
 }
+
 h4 {
-   width: 100%;
-   Font-Family: 'Ruda';
-   Font-Size: 30px;
-   color: #f8f8f8;
-   text-align: center;
-   background-color: #5ca0d3;
-   font: 'Josefin Sans', sans-serif;
+    Font-Size: 5vh;
+    color: #f8f8f8;
+    text-align: center;
+    background-color: #5ca0d3;
+    font: 'Josefin Sans', sans-serif;
 }
+
 .buttonType {
-   padding: 0 16px;
-   /*border-radius: 2px;*/
+    padding: 0 16px;
+    border-radius: 2px;
+    background-color: #4592af;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    color: rgb(255, 255, 255);
+    transition: background-color 15ms linear, box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    height: 36px;
+    line-height: 2.25rem;
+    font-family: 'Concert One', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    
+    align-items: center;
+}
+
+.buttonType:hover,
+.buttonType:focus {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: #82cf07;
+}
+
+.buttonType:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    background-color: #61b4b3;
+}
+/* Botones orden asc y desc */
+
+#sorta-z {
+    background-color: #00B3CC;
+    align-items: center;
+}
+
+.btn-option {
+    padding: 0 16px;
+    /* border-radius: 2px;
    background-color: #4592af;
    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
    color: #fff;
@@ -477,30 +577,5 @@ h4 {
    font-weight: 500;
    letter-spacing: 0.06em;
    text-transform: uppercase;
-   align-items: center;
-   
-   
-}
-.buttonType:hover,
-.buttonType:focus {
-   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
-   background-color: #159090;
-}
-.buttonType:active {
-   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-   background-color: #61b4b3;
-}
-.menu ul{
-    padding: 0;
-    display: flex;
-    list-style: none;     
-
-}
-#main-type{
-    display: block;
-    padding: 0;
-}
-
-.menu li:hover{
-    background: yellowgreen;
+   align-items: center; } */
 }
