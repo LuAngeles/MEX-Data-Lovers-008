@@ -3,10 +3,25 @@
 
 
 //const example = () => {
-  //return 'example';
-//};
+    //return 'example';
+    //};
+    
+    //window.example = example;
 
-//window.example = example;
+//FUNCIÓN PARA FILTRAR POR TIPOS DE POKÉMON //
+       
+const filterBy = (data, condition) => { /* Función para filtrar los pokemones por tipos */
+    const filterbytype = data.filter(element => {
+        for (let i = 0; i < element.type.length; i++) {
+            if (element.type[i] === condition) {
+                return 1;
+              }
+          }
+      });
+      return filterbytype;
+    };
+    
+window.filterBy = filterBy;
 
 //FUNCIÓN PARA ORDENAR DE LA A-Z Y Z-A//
 const sorData = (dataPokemon, sortBy, sortOrder) => {
@@ -30,30 +45,21 @@ const sorData = (dataPokemon, sortBy, sortOrder) => {
 
 window.sorData = sorData;
 
-//FUNCIÓN PARA FILTRAR POR TIPOS DE POKÉMON //
-// const typesPok=(pokeId)=>{
-//   let type=baseData.filter((el)=> el.type.find(tipo=>tipo===(pokeId))) //el=elemento que irá recorriendo y/o buscando dentro del arreglo 'type' el valor de 'Grass'//
-//   return type;
-// }
-// window.typesPok=typesPok;
+//  FUNCIÓN PARA PESO PROMEDIO DE POKÉMONES //
 
-const filterBy = (data, condition) => { /* Función para filtrar los pokemones por tipos */
-  const filterbytype = data.filter(element => {
-      for (let i = 0; i < element.type.length; i++) {
-          if (element.type[i] === condition) {
-              return 1;
-          }
-      }
-  });
-  return filterbytype;
+window.computeStats = {
+    statsPromedy: (data, stats) => {
+        let finalResult;
+        let sumWeight = 0;
+        data.forEach((data) => {
+            const number = data[stats];
+            const onlyNumber = number.split(" ");
+            sumWeight += parseFloat(onlyNumber);
+        });
+
+        finalResult = sumWeight / data.length;
+        return finalResult.toFixed(2);
+    },
 };
 
-window.filterBy = filterBy;
 
-
-// //FUNCIÓN PARA SUMAR TODOS LOS ELEMENTOS DE UN ARREGLO (En mi caso fue para obtener el peso total de los pokémones)//
-// const sumWeight=(onlyNumWeight)=>{
-//   let weight=(onlyNumWeight).reduce((accumulator,currentValue)=>accumulator+currentValue);
-//   return weight;
-// }
-// window.sumWeight=sumWeight;

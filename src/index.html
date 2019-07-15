@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <title>Buscador Pokémon!</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oxygen:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -22,9 +24,7 @@
 
     </ul>
 
-    <section id="PaginaInicio" class="display_block">
-
-    </section>
+    <section id="PaginaInicio" class="display_block"></section>
 
     <section class="hide" id="instructions">
         <div class="instructions-text ">
@@ -83,10 +83,19 @@
                                 </li>
                             </ul>
                         </li>
-                      </li>
+                    </li>
+                    <li><a href="#statsmenu" id="statsweight">DATO CURIOSO!<br> ¿Sabes cuál es el peso promedio de todos los pokémones?</a></li>
                 </ul>
-                
+
             </div>
+
+            <section class="hide" id="statsmenu">
+                <div class="stats-text">
+                    <input type="button" name="close" value="X" id="close2">
+                    <h2>¿Sabías qué?</h2>
+                    <p class="text-stats" id="stats"></p>
+                </div>
+            </section>
 
             <!-- Botones Filtrado A-Z y Z-A-->
             <div id="" class="">
@@ -95,26 +104,13 @@
                 <button class="btn-option"></button>
             </div> 
 
-            <!-- Botones filtrado por tipo -->
-
 
             <!-- Tarjeta Pokemon -->
             <div id="dataPokemon" class="container Pokedex ">
             </div>
           </div>
     </section>
-
-    
-
-
-
-
-
-
-
-   
-  
-
+ 
     <div id="root "></div>
    
     <script src="./data/pokemon/pokemon.js "></script>
