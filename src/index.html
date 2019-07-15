@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <title>Buscador Pokémon!</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oxygen:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -22,59 +24,93 @@
 
     </ul>
 
-    <section id="PaginaInicio" class="display_block">
-
-    </section>
+    <section id="PaginaInicio" class="display_block"></section>
 
     <section class="hide" id="instructions">
         <div class="instructions-text ">
             <input type="button" name="close" value="X" id="close">
             <h2>Instrucciones</h2>
-            <p>Esta es una página donde puedes visualizar los 151 Pokémones de la región Kento.</p>
-            </br>
+            <p>Esta es una página donde puedes visualizar los 151 Pokémones de la región Kento.</p><br>
             <p>Utilizarlo es muy sencillo, para ingresar solo necesitas dar click en "Pokedex " y ahí podras ver todos los Pokémones, así como filtrar por tipo, evolución y por nombre de forma ascedente o descendente.</p>
         </div>
     </section>
 
 
     <!-- pokedex-->
-    <section id="tipos-Pokemon" class="hide">
+    <section id="Pokedex" class="hide">
 
-           <h4>Busca por tipo de Pokémon:</h4>
-           <button id="Normal" class="buttonType">Normal</button>
-           <button id="Fire" class="buttonType">Fuego(Fire)</button>
-           <button id="Grass" class="buttonType" >Hierba(Grass)</button>
-           <button id="Poison" class="buttonType">Veneno(Poison</button>
-           <button id="Ice" class="buttonType">Hielo(Ice)</button>
-           <button id="Water" class="buttonType"><img src="./imagenes.ico-rayo">Agua(Water)</button>
-           <button id="Flying" class="buttonType">Volador(Flying)</button>
-           <button id="Psychic" class="buttonType">Psíquico(Psychic)</button>
-           <button id="Ground" class="buttonType">Tierra(Ground)</button>
-           <button id="Ghost" class="buttonType">Fantasma(Ghost)</button>
-           <button id="Bug" class="buttonType">Insecto(Bug)</button>
+        <!-- Menu Filters -->
+        <div id="sorta-z" class="">
 
-        
-      </section>
+            <div id="filtermenu" class="container2">
+                <ul id="nav">
+                    <li><a href="#s1">Filtros</a>
+                        <li class="active"><a href="#s1">POR NOMBRE</a>
+                            <span id="s1"></span>
+                            <ul class="subs">
+                                <li>
+                                    <ul>
+                                        <li><button class="buttonType" id="ordsname-a">Ascendente</button></li>
+                                        <li><button class="buttonType" id="ordsname-d">Descendente</button></li>
 
-      <section id="tipos" class="hide">
-          <ul class="topnav">
- 
-      
-          </ul>
-<h4>Pokémon tipo:</h4>
-      </section>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
 
-    <section id="dataPokemon" class="container Pokedex hide">
+                        <li class="active"><a href="#s2">POR TIPO</a>
+                            <span id="s2"></span>
+                            <ul class="subs">
+                                <li>
+                                    <ul>
+                                        <li> <button id="Normal" class="buttonType">Normal</button> </li>
+                                        <li> <button id="Fire" class="buttonType">Fuego</button> </li>
+                                        <li> <button id="Grass" class="buttonType">Hierba</button> </li>
+                                        <li> <button id="Poison" class="buttonType">Veneno</button> </li>
+                                        <li> <button id="Ice" class="buttonType">Hielo</button> </li>
+                                        <li> <button id="Water" class="buttonType">Agua</button> </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li> <button id="Flying" class="buttonType">Volador</button> </li>
+                                        <li> <button id="Psychic" class="buttonType">Psíquico</button> </li>
+                                        <li> <button id="Ground" class="buttonType">Tierra</button> </li>
+                                        <li> <button id="Ghost" class="buttonType">Fantasma</button> </li>
+                                        <li> <button id="Bug" class="buttonType">Insecto</button> </li>
+                                        <li> <button id="return" class="buttonType">Todos</button> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </li>
+                    <li><a href="#statsmenu" id="statsweight">DATO CURIOSO!<br> ¿Sabes cuál es el peso promedio de todos los pokémones?</a></li>
+                </ul>
 
- 
+            </div>
+
+            <section class="hide" id="statsmenu">
+                <div class="stats-text">
+                    <input type="button" name="close" value="X" id="close2">
+                    <h2>¿Sabías qué?</h2>
+                    <p class="text-stats" id="stats"></p>
+                </div>
+            </section>
+
+            <!-- Botones Filtrado A-Z y Z-A-->
+            <div id="" class="">
+                <h4></h4>
+                <button class="btn-option"></button>
+                <button class="btn-option"></button>
+            </div> 
+
+
+            <!-- Tarjeta Pokemon -->
+            <div id="dataPokemon" class="container Pokedex ">
+            </div>
+          </div>
     </section>
-
-    <section id="tipo-hierba" class="hide">
-      <h3>Aquí va la sección pokémon tipo hierba (grass)</h3>  
-      <div id="Grass-pokemon" class="card-Grass"></div>
-    </section>
-
-
+ 
     <div id="root "></div>
    
     <script src="./data/pokemon/pokemon.js "></script>
@@ -86,91 +122,3 @@
 
 </html>
 
-  <!--
-  <body>
-    <section id="principal">
-      <main id="main-content" class="main-style">
-         <a id="tipo-boton" class="boton">Tipo Pokémon</a> 
-         <button id="Ice" class="buttons">Ice</button>
-         <button id="Ice1" class="buttons">Ice</button>
-         <button id="Ice2" class="buttons">Ice</button>
-         <div id="content" class="content-style">
-         <div id="pokemon-card" class="card">
-              </div>
-              
-          </div>
-      </main>
-    </section>
--->
-
-<!-- Seccion para un buscador (prueba)-->
-<!--<input type="text" id="buscar-pokemon" onkeyup="autocompletado()">
-<div>
-  <ul id="prueba"></ul>
-</div>
--->
-
-
-<!-- Secciones para los filtros por tipo 
-    
-    <section id="tipo-hierba" class="oculto">
-      <h3>Aquí va la sección pokémon tipo hierba (grass)</h3>  
-      <div id="Grass-pokemon" class="card-Grass"></div>
-    </section>
-
-    
-    <section id="tipo-veneno" class="oculto">
-      <h3>Aquí va la sección pokémon tipo veneno(veneno)</h3>
-      <div id="poison-pokemon" class="card"></div>
-    </section>
-
-    <section id="tipo-suelo" class="oculto">
-      <h3>Aquí va la sección pokémon tipo suelo(ground)</h3>
-      <div id="ground-pokemon" class="card"></div>
-    </section>
-
-    <section id="tipo-electrico" class="oculto">
-      <h3>Aquí va la sección pokémon tipo electrico(electric)</h3>
-      <div id="electric-pokemon" class="card"></div>
-    </section>
-
-    <section id="tipo-fuego" class="oculto">
-      <h3>Aquí va la sección pokémon tipo fuego(fire)</h3>
-      <div id="fire-pokemon" class="card"></div>
-    </section>
-    
-    <section id="tipo-hielo" class="oculto">
-      <h3>Aquí va la sección pokémon tipo hielo(Ice)</h3>
-      <div id="ice-pokemon" class="card"></div>
-    </section>  
-
-    <section id="tipo-roca" class="oculto">
-      <h3>Aquí va la sección pokémon tipo roca(Rock)</h3>
-      <div id="rock-pokemon" class="card"></div>
-    </section>  
-
-    <section id="tipo-normal" class="oculto">
-      <h3>Aquí va la sección pokémon tipo normal</h3>
-      <div id="normal-pokemon" class="card"></div>
-    </section>  
-
-    <section id="tipo-volador" class="oculto">
-      <h3>Aquí va la sección pokémon tipo volador(flying)</h3>
-      <div id="flying-pokemon" class="card"></div>
-    </section>  
-
-    <section id="tipo-psíquico" class="oculto">
-      <h3>Aquí va la sección pokémon tipo psíquico (psychic)</h3>
-      <div id="psychic-pokemon" class="card"></div>
-    </section>  
-
-    <section id="tipo-agua" class="oculto">
-      <h3>Aquí va la sección pokémon tipo agua (water)</h3>
-      <div id="water-pokemon" class="card"></div>
-    </section>  
-
-    <section id="tipo-peleador" class="oculto">
-      <h3>Aquí va la sección pokémon tipo peleador (fighting)</h3>
-      <div id="fight-pokemon" class="card"></div>
-    </section> 
--->

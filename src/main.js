@@ -1,17 +1,24 @@
+const dataPokemon = window.POKEMON.pokemon;
+
 //Working with help button-instructions
 const helpButton = document.getElementById('help-button');
 const closeButton = document.getElementById('close');
-const returnButton = document.getElementById('return-button');
+const closetButton = document.getElementById('close2');
+//const returnButton = document.getElementById('return-button');
+const orderNameAsc = document.getElementById('ordsname-a');
+const orderNameDes = document.getElementById('ordsname-d');
+const statsweight = document.getElementById('statsweight');
+
 
 
 //Function that hide section with id
 const hideSection = (id) => {
         document.getElementById(id).classList.add('hide');
-    }
+    };
     //Function that show section with id
 const showSection = (id) => {
     document.getElementById(id).classList.remove('hide');
-}
+};
 
 
 //Functionability for help button and close button
@@ -19,357 +26,154 @@ const showInstructions = () => showSection('instructions');
 const closeInstructions = () => hideSection('instructions');
 
 helpButton.addEventListener("click", showInstructions);
-closeButton.addEventListener("click", closeInstructions)
+closeButton.addEventListener("click", closeInstructions);
 
-//BotonInicio
+//Return button
 
-const goBack = document.getElementById('return-button');
+const returnGoBack = document.getElementById('return-button');
 
 const goback = () => { 
     hideSection('dataPokemon');
-    hideSection('tipos-Pokemon')
-    hideSection('tipos')
+    hideSection('Pokedex');
+    hideSection('sorta-z');
+    hideSection('filtermenu');
     showSection('PaginaInicio');
-}
-
-goBack.addEventListener("click", goback);
-
+};
+returnGoBack.addEventListener("click", goback);
 
 
-//Seccion Pokemones
+//Pokedex section
 const AllPokemon = document.getElementById('show-button');
 
 const openPokedex = () => {
     hideSection('PaginaInicio');
-    hideSection('tipos');
+    showSection('filtermenu');
     showSection('dataPokemon');
-    showSection('tipos-Pokemon');
-}
-
+    showSection('Pokedex');
+    
+};
 AllPokemon.addEventListener("click", openPokedex);    
 
 
-
-// Función para mostrar la data en html //
+// Show data HTML //
 //Data
 
-const baseData = POKEMON.pokemon;
+const baseData = window.POKEMON.pokemon;
 const card = document.getElementById("dataPokemon");
 
 const cardData = (baseData) => {
-    let str = ''
+    let str = '';
     baseData.forEach(element => {
         str +=
             `<div class="Pokedex">
         <div class= "card">
         
-        <p>Num. ${element.num}</p>
+        <p>Id:${element.num}</p>
        
         <div class="img">
         <img src="${element.img}"></img>
         </div>
         
         <div class="info">
-        <p>${element.name}</p>
+        <p>Nombre:${element.name}</p>
         
-         <p>${element.type}</p>
+         <p>Tipo:${element.type}</p>
         </div>
         </div>
-        </div>`
+        </div>`;
 
     });
 
-    card.innerHTML = str
+    card.innerHTML = str;
 };
-cardData(baseData)
+cardData(baseData);
 
 
-///Para que me aparezcan los tipos de pokemon existentes en la data ///
-//let tipoPok=[]
-//for(let i=0;i<baseData.length;i++){ 
-//  tipoPok = console.log(baseData[i].type);
-  //tipoPok.push(baseData[i].type);
-//}
 
-// sección para primer filtro ordene de la A-Z//
-///Para que me aparezcan los nombres de pokemon existentes en la data ///
-let namePok=[];
-for(let i=0;i<baseData.length;i++){ 
-   // namePok = console.log(baseData[i].name);
-    namePok.push(baseData[i].name);
+
+//Filter by type 
+
+const button = document.getElementsByClassName('buttonType'); //Esta variable se manda llamar por la clase que tiene cada uno de los botones//
+//console.log(button);
+for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener('click', () => {
+        //const targetPok = (event) => {
+        const pokeId = event.target.id; //Como todos los botones tienen la misma clase, lo que hace ésta función es buscar el id del tipo de pokémon que el usuario quiere buscar//
+        const typesPok = baseData.filter((el) => el.type.find(tipo => tipo === pokeId)); //el=elemento que irá recorriendo y/o buscando dentro del arreglo 'type' el valor de 'Grass'//
+        if (pokeId == 'return') {
+            cardData(baseData);
+        } else {
+
+            console.log(typesPok);
+            cardData(typesPok);
+        }
+    });
 }
-const orderName=namePok.sort();
+
+// Filter A-Z Z-A//
 
 
+orderNameAsc.addEventListener('click', () => { /*  Ordenado ascendente por nombre*/
+    cardData(sorData(dataPokemon, 'name', 'ASC'));
+});
+orderNameDes.addEventListener('click', () => { /* Ordenado descendente por nombre*/
+    cardData(sorData(dataPokemon, 'name', 'DESC'));
+});
+
+//Stats by weight 
+//Functionability for stats menu
+
+const showstatsmenu = () => showSection('statsmenu');
+const closestatsmenu = () => hideSection('statsmenu');
+
+statsweight.addEventListener("click", showstatsmenu);
+closetButton.addEventListener("click", closestatsmenu);
+const resultStats = document.getElementById("stats");
+
+statsweight.addEventListener("click", () => {
+    resultStats.innerHTML = ("El peso promedio de todos los Pokémones es " + computeStats.statsPromedy(dataPokemon, 'weight') + "kg.");
+});
 
 
-// sección para segundo filtro por tipo de pokémon //
-
-
-    /////////////////////////////////
-    const pokemonType = document.getElementById('tipos-Pokemon');
-    const openType = () => {
-        hideSection('tipos-Pokemon');
-        hideSection('dataPokemon')
-        showSection('tipos');
-    }
+/////////// Para obtener estadísticas ///////////
+//Este primer ciclo es para guardar en un arreglo los pesos de los 151 pokémones//
+let weightPok=[];    // arreglo que empieza vacío, pero será donde se guarde el nuevo arreglo para los pesos de los pokémones//
+for(let i=0;i<baseData.length;i++){ //ESte for irá recorriendo toda la data ...
     
-  pokemonType.addEventListener("click", openType);   
+    weightPok.push(baseData[i].weight); //...para encontrar los valores del peso  
+}                                   //El push lo que hace es que por cada valor de peso que encuentre en la Data, lo va agregando al nuevo arreglo
 
-
-
-const button = document.getElementsByClassName('buttonType') //Esta variable se manda llamar por la clase que tiene cada uno de los botones//
-//console.log(button)
-
-const targetPok=(event)=>{
-console.log(event.target.id);//Como todos los botones tienen la misma clase, lo que hace ésta función es buscar el id del tipo de pokémon que el usuario quiere buscar//
-//event.target.id
+//Este segundo ciclo es para guardar en un arreglo los cinco primeros valores de los strings por cada uno de los 151 pokémones//
+let numWeight=[]; // arreglo que empieza vacío, pero será donde se guarde el nuevo arreglo para solo los primeros 5 valores del arreglo weightPok//
+for(let j=0;j<weightPok.length;j++){ //ESte for irá recorriendo el arreglo weigthPok...
+    let result=weightPok[j].substr(0,4); //...y con substr solo sacará los primeros cinco valores del arreglo weightPok 
+    numWeight.push(result);              // Estos valores los guarda en el nuevo arreglo numWeight
 }
 
-for(let i = 0; i < button.length ; i++){
-    button[i].addEventListener('click' , targetPok); //Lo que hace el for es que de todos los botones que tengan esta clase, buscará el id//
-       
-     }
-     const typePokemon=baseData.filter(function(el){
-      return el.type.find(targetPok);
-      });
-     cardData(typePokemon);
-     
+//Este tercer ciclo es para guardar en un arreglo los "strings" que pasarán como "number"del arreglo numWeight//
+let onlyNumWeight=[]; // arreglo que empieza vacío, pero será donde se guarden los valores "strings" convertidos a "number" del arreglo numWeight//
+for(let k=0;k<numWeight.length;k++){ //ESte for irá recorriendo el arreglo numWeigth...
+    let num=parseFloat(numWeight[k]); //...y con parseFloat para que me conveirta tanto el numero entero, como decimales de "string" a "number" 
+    onlyNumWeight.push(num); // Estos "number" los guarda en el nuevo arreglo onlyNumWeight
+}
 
-
- 
+// //Para sacar el promedio del peso de los pokémones
+// let aveWeight=onlyNumWeight.length; //Obtengo la longitud total del arreglo
+// let sumWeight= onlyNumWeight.reduce((accumulator,currentValue)=>accumulator+currentValue); //Utilizo ".reduce" para que sume todos los elementos de "onlyNumWeight"
 
 
 
 
-    //Filtro para que aparezcan por tipo hierba//
-//const grassPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-  //      return el.type.find(tipo=>tipo==='Grass');
-        
-//});
-  //      console.log(grassPok);
-//const grassType=document.getElementById('Grass-pokemon');
-//const cardGrass=()=>{
-  //  let grassStr=''
-    //     grassPok.forEach(element =>{
-      //      grassStr += `<div class=card>
-        //    <p>${element.num}</p>
-          //  <img src="${element.img}"></img>
-           // <p>${element.name}</p>
-            //<p>${element.type}</p>
-            //</div>`
-//});
-//grassType.innerHTML=grassStr
-//};
-//cardGrass()
+// /////////// Para obtener estadísticas de la data por oportunidad de aparición///////////
+// let spawnChancePok=[] 
+// for(let i=0;i<baseData.length;i++){ 
+//   //spawnChancePok = console.log(baseData[i].spawn_chance);
+//   spawnChancePok.push(baseData[i].spawn_chance);
+// }
+// let average=spawnChancePok.length;
 
-    //Filtro para que aparezca por tipo veneno//
-const poisPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[0]=='Poison');
-});
-const poisType=document.getElementById('tipos');
-const cardPoison=()=>{
-    let poisStr=''
-        poisPok.forEach(element =>{
-            poisStr += `<div class=card>
-            <p>${element.num}</p> 
-            <img src="${element.img}"></img>
-            <p>Nombre:${element.name}</p>
-            <p>Debilidades:${element.weaknesses}</p>
-            </div>`
-});
-poisType.innerHTML=poisStr
-};
-cardPoison()
+// let sum=spawnChancePok.reduce((accumulator,currentValue)=>accumulator+currentValue);
+//  average=sum/average;
 
-  //Fitlro para que aparezca por tipo suelo//
-const groundPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-   return (el.type[0]=='Ground');
-});
-const groundType=document.getElementById('ground-pokemon');
-const cardGround=()=>{
-    let groundStr='' //Esta es la variable donde me irá guardando la información//
-        groundPok.forEach(element =>{
-            groundStr += `<div class=card>
-            <p>${element.num}</p>
-            <img src="${element.img}"></img>
-            <p>${element.name}</p>
-            <p>${element.type}</p>
-            </div>`
-});
-groundType.innerHTML=groundStr; //Ésta es la sección donde quiero que aparezaca esa tarjetita//
-};
-cardGround()  //Aquí mando llamar la tarjeta final, ya con todos los datos//
 
-  //Fitlro para que aparezca por tipo eléctrico//
-const elecPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[0]=='Electric');
-});
-const elecType=document.getElementById('electric-pokemon');
-const cardElectric=()=>{
-    let elecStr=''
-        elecPok.forEach(element =>{
-        elecStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-elecType.innerHTML=elecStr;
-};
-cardElectric()  
 
-  //Fitlro para que aparezca por tipo fuego//
-const firePok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-  return (el.type[0]=='Fire');
-});
-const fireType=document.getElementById('fire-pokemon');
-const cardFire=()=>{
-    let fireStr=''
-        firePok.forEach(element =>{
-        fireStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-fireType.innerHTML=fireStr;
-};
-cardFire() 
-
-  //Filtro para que aparezca por tipo hielo//
-const icePok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[0]=='Ice');
-});
-const iceType=document.getElementById('ice-pokemon');
-const cardIce=()=>{
-    let iceStr=''
-        icePok.forEach(element =>{
-        iceStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-iceType.innerHTML=iceStr;
-};
-cardIce() 
-
-  //Filtro para que aparezca por tipo roca//
-const rockPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[0]=='Rock');
-});
-const rockType=document.getElementById('rock-pokemon');
-const cardRock=()=>{
-    let rockStr=''
-        rockPok.forEach(element =>{
-        rockStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-rockType.innerHTML=rockStr;
-};
-cardRock() 
-
-  //Filtro para que aparezca por tipo normal//
-const normalPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[0]=='Normal');
-});
-const normalType=document.getElementById('normal-pokemon');
-const cardNormal=()=>{
-    let normalStr=''
-        normalPok.forEach(element =>{
-        normalStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-normalType.innerHTML=normalStr;
-};
-cardNormal() 
-
-  //Filtro para que aparezca por tipo volador//
-const flyPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[1]=='Flying');
-});
-const flyType=document.getElementById('flying-pokemon');
-const cardFly=()=>{
-    let flyStr=''
-        flyPok.forEach(element =>{
-        flyStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-flyType.innerHTML=flyStr;
-};
-cardFly() 
-
-  //Filtro para que aparezca por tipo psíquico//
-  const psycPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[0,1]=='Psychic');
-});
-const psycType=document.getElementById('psychic-pokemon');
-const cardPsyc=()=>{
-    let psycStr=''
-        psycPok.forEach(element =>{
-        psycStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-psycType.innerHTML=psycStr;
-};
-cardPsyc() 
-
-  //Filtro para que aparezca por tipo agua//
-
-const waterPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[0]=='Water');
-});
-const waterType=document.getElementById('water-pokemon');
-const cardWater=()=>{
-    let waterStr=''
-        waterPok.forEach(element =>{
-        waterStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-waterType.innerHTML=waterStr;
-};
-cardWater() 
-
-  //Filtro para que aparezca por tipo peleador//
-
-  const fightPok=baseData.filter(function(el){ //el es el equivalente del objeto dentro del arreglo, este es el que irá recorriendo//
-    return (el.type[0]=='Fighting');
-});
-const fightType=document.getElementById('fight-pokemon');
-const cardFight=()=>{
-    let fightStr=''
-        fightPok.forEach(element =>{
-        fightStr += `<div class=card>
-        <p>${element.num}</p>
-        <img src="${element.img}"></img>
-        <p>${element.name}</p>
-        <p>${element.type}</p>
-        </div>`
-});
-fightType.innerHTML=fightStr;
-};
-cardFight() 
